@@ -1,0 +1,75 @@
+<div class="gradient">
+    <div>
+        <div>
+            <h3>{{citiesadata[page-1]?.main?.temp}} 🌡️</h3>
+        </div>
+        <div>
+            <button (click)="clickedAsssam()">Assam</button>
+            <button (click)="clickedDelhi()">Delhi</button>
+            <button (click)="clickedMaharastra()">Maharashtra</button>
+            <button (click)="clickedAgra()">Agra</button>
+        </div>
+    </div>
+    <h2>{{currentCity}}</h2>
+    <div *ngFor="let cities of citiesadata">
+        <div class="ImgDiv" *ngIf="checkEqual(cities,citiesadata[page-1])">
+            <img className="weather-icon" src="http://openweathermap.org/img/wn/{{cities.weather[0].icon}}@4x.png"
+                alt="dslkdsds" />
+            <p style="font-size: 25px;">{{cities.weather[0].description}}</p>
+        </div>
+        <!-- <p *ngIf="checkEqual(cities,citiesadata[page-1])">{{cities.weather[0].icon}}</p> -->
+    </div>
+    <div class="weatherdiv" >
+        <button (click)="changePage(-1)">prev</button>
+        <div class="weatherDetails">
+            <p>{{citiesadata[page-1]?.name}}</p>
+            <p *ngIf="convertToDate(citiesadata[page-1]?.sys?.sunrise) !== null">{{convertedDate}}</p>
+            <p>{{citiesadata[page-1]?.main?.temp_max}} / {{citiesadata[page-1]?.main?.temp_min}} 🌡️</p>
+        </div>
+        <button (click)="changePage(1)">next</button>
+    </div>
+</div>
+
+<!-- {
+    "coord": {
+        "lon": "93.04",
+        "lat": "25.99"
+    },
+    "weather": [
+        {
+            "id": 802,
+            "main": "Clouds",
+            "description": "scattered clouds",
+            "icon": "03n"
+        }
+    ],
+    "base": "stations",
+    "main": {
+        "temp": "27.53",
+        "feels_like": "25.83",
+        "temp_min": "24.31",
+        "temp_max": "31.17",
+        "pressure": "1009.32",
+        "humidity": "88.85",
+        "sea_level": "1007.51",
+        "grnd_level": "1000.27"
+    },
+    "visibility": "10504.22",
+    "wind": {
+        "speed": "1.64",
+        "deg": "301.22",
+        "gust": "0.99"
+    },
+    "clouds": {
+        "all": "54.18"
+    },
+    "dt": "1695834404.00",
+    "sys": {
+        "country": "IN",
+        "sunrise": 1695771495,
+        "sunset": 1695814809
+    },
+    "timezone": 19800,
+    "name": "Assam",
+    "cod": 200
+} -->

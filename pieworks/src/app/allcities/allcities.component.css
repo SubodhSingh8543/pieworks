@@ -1,0 +1,8 @@
+.gradient {
+    border: 0.000000000001px none transparent;
+    background: linear-gradient(to bottom, #1afff4, #868686);
+    min-height: 100vh;
+    height: auto;
+    margin-top:0px;
+}
+
